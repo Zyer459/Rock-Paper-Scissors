@@ -32,45 +32,58 @@ function ComputerChoice (min=1, max=3) {
     }
 }
 
-function Game (User, PC, score,  result) {
-    User = UserChoice();
-    PC = ComputerChoice();
+function Game (Result) {
+    /*User = UserChoice();
+    PC = ComputerChoice();*/
 
     function GameRound (result) {
         for (let i = 0; i < 5; i++) {
-            function Score (Uscore, Comscore, result) {
+            function Score (Uscore, Comscore, User, PC) {
+
                 Uscore = 0, Comscore = 0;
+                
+                User = UserChoice();
+                PC = ComputerChoice();
 
                 if (User == "rock" && PC == "paper") {
                     Uscore += 0;
                     Comscore += 1;
+                    console.log (Uscore, Comscore);
                 }
                 else if (User = "rock" && PC == "scissor") {
                     Uscore += 1;
                     Comscore += 0;
+                    console.log (Uscore, Comscore);
                 }
                 else if (User = "paper" && PC == "scissor") {
                     Uscore += 0;
                     Comscore += 1;
+                    console.log (Uscore, Comscore);
                 }
                 else if (User = "paper" && PC == "rock") {
                     Uscore += 1;
                     Comscore += 0;
+                    console.log (Uscore, Comscore);
                 }
                 else if (User = "scissor" && PC == "rock") {
                     Uscore += 0;
                     Comscore += 1;
+                    console.log (Uscore, Comscore);
                 }
                 else if (User = "scissor" && PC == "paper") {
                     Uscore += 1;
                     Comscore += 0;
+                    console.log (Uscore, Comscore);
                 }
                 else {
                     Uscore += 0;
                     Comscore += 0;
+                    console.log (Uscore, Comscore);
                 }
+                return [Uscore, Comscore]
+            }
 
-                if (Uscore > Comscore) {
+                /*if (Uscore > Comscore) {
                     result = "You win :D";
                 }
                 else if (Uscore < Comscore) {
@@ -79,8 +92,21 @@ function Game (User, PC, score,  result) {
                 else {
                     result = "Draw :o"
                 }
-            }
+            }*/
+        }
+        result = Score();
+
+        if (result[0] > result[1]) {
+            return result = "You win :D"
+        }
+        else if (result[0] < result[1]) {
+            return result = "You lose :("
+        }
+        else {
+            return result = "Draw :o"
         }
     }
+Result = GameRound();
+return Result
 }
 console.log (Game());
