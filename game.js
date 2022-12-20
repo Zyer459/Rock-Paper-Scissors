@@ -32,15 +32,17 @@ function ComputerChoice (min=1, max=3) {
     }
 }
 
-function Game (Result) {
+function Game (Result, score) {
     /*User = UserChoice();
     PC = ComputerChoice();*/
 
     function GameRound (result) {
-        for (let i = 0; i < 5; i++) {
-            function Score (Uscore, Comscore, User, PC) {
-
-                Uscore = 0, Comscore = 0;
+        //for (let i = 0; i < 5; i++) {
+        function Score (Uscore, Comscore, User, PC) {
+            Uscore = 0;
+            Comscore = 0;
+            //function Score (Uscore, Comscore, User, PC) {
+            for (let i = 0; i < 5; i++) {
                 
                 User = UserChoice();
                 PC = ComputerChoice();
@@ -48,39 +50,40 @@ function Game (Result) {
                 if (User == "rock" && PC == "paper") {
                     Uscore += 0;
                     Comscore += 1;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
                 else if (User = "rock" && PC == "scissor") {
                     Uscore += 1;
                     Comscore += 0;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
                 else if (User = "paper" && PC == "scissor") {
                     Uscore += 0;
                     Comscore += 1;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
                 else if (User = "paper" && PC == "rock") {
                     Uscore += 1;
                     Comscore += 0;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
                 else if (User = "scissor" && PC == "rock") {
                     Uscore += 0;
                     Comscore += 1;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
                 else if (User = "scissor" && PC == "paper") {
                     Uscore += 1;
                     Comscore += 0;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
                 else {
                     Uscore += 0;
                     Comscore += 0;
-                    console.log (Uscore, Comscore);
+                    //console.log (Uscore, Comscore);
                 }
-                return [Uscore, Comscore]
+                //return [Uscore, Comscore]
+                console.log (Uscore, Comscore);
             }
 
                 /*if (Uscore > Comscore) {
@@ -93,20 +96,26 @@ function Game (Result) {
                     result = "Draw :o"
                 }
             }*/
+            return [Uscore, Comscore]
         }
-        result = Score();
+        //const [User, PC] = Score();
+        score = Score();
+        result  = "";
 
-        if (result[0] > result[1]) {
-            return result = "You win :D"
+        if (score[0] > score[1]) {
+            //return "You win :D"
+            result = "You win :D";
         }
-        else if (result[0] < result[1]) {
-            return result = "You lose :("
+        else if (score[0] < score[1]) {
+            //return "You lose :("
+            result = "You lose :(";
         }
         else {
-            return result = "Draw :o"
+            //return "Draw :o"
+            result = "Draw :o";
         }
+        return result;
     }
-Result = GameRound();
-return Result
+return Result = GameRound();
 }
 console.log (Game());
