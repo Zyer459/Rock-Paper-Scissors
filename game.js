@@ -1,5 +1,7 @@
+const PromptSync = require("prompt-sync");
+const prompt = PromptSync();
 function UserChoice () {
-    User = prompt ("rock, paper or scissor?");
+    User = prompt ("rock, paper or scissor? ");
     User = User.toLowerCase ();
 
     if (User == "rock") {
@@ -17,16 +19,16 @@ function UserChoice () {
     return User
 }
 
-function ComputerChoice (min=1, max=3) {
+function ComputerChoice (min=0, max=2) {
     let PC = "";
     switch (Math.floor (Math.random() * (max - min + 1)) + min) {
-        case 1:
+        case 0:
             PC = "rock";
             return PC
-        case 2:
+        case 1:
             PC ="paper";
             return PC
-        case 3:
+        case 2:
             PC ="scissors"
             return PC
     }
